@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<p id="Demo"></p>
+<form name="myform" onsubmit="return validateForm()" method="post">
+    Fname:<input type="text" name="fname" id="fname">
+    <p id="fname1" class="error">Fill the Fname</p>
+    <br/>
+    Lname:<input type="text" name="Lname" id="Lname">
+    <p id="fname2" class="error">Fill the Lname</p>
+    <br/>
+    <br/>
+    Gender:
+    <input type="radio" name="gender" value="Male" id="genderMale">Male
+    <input type="radio" name="gender" value="Female" id="genderFemale">Female
+    <input type="radio" name="gender" value="Others" id="genderOthers">Others
+    <p id="fname3" class="error">Fill the Gender</p>
+    <br/>
+    <br/>
+    Phone Number:<input type="tel" name="phno" pattern="[0-9]{10}">
+    <p id="fname7" class="error">Fill the Phone Number</p>
+    <br/>
+    <br/>
+    E-Mail:<input type="email" name="mail" id="mail">
+    <p id="fname4" class="error">Fill the Mail</p>
+    <br/>
+    <br/>
+    DOB:<input type="date" name="dob" id="dob">
+    <p id="fname5" class="error">Fill the DOB</p>
+    <br/>
+    <br/>
+    College:<select id="Colleges" name="Colleges">
+        <option value="">select</option>
+        <option value="AEC"> AEC</option>
+        <option value="ACET">ACET</option>
+        <option value="ACOE">ACOE</option>
+    </select>
+    <p id="fname6" class="error">Fill the College</p>
+    <br>
+    <br/>
+    What Do You Know:
+    <div class="lot">
+        <div class="lot1">
+        <input type="checkbox" name="program" id="c" value="C">
+        <label for="c">C</label>
+        <input type="checkbox" name="program" id="c++" value="C++">
+        <label for="c++">C++</label>
+        <input type="checkbox" name="program" id="java" value="Java">
+        <label for="java">Java</label></div>
+        <div class="lot2">
+        <input type="checkbox" name="program" id="javascript" value="Javascript">
+        <label for="javascript">Javascript</label>
+        <input type="checkbox" name="program" id="python" value="Python">
+        <label for="python">Python</label>
+        <input type="checkbox" name="program" id="none" value="None">
+        <label for="none">None</label></div>
+    </div>
+        <br>
+    <input type="submit" value="Submit">
+</form>
+<p id="one"></p>
+<script type="text/javascript">
+    function validateForm()
+    {
+        let x=document.myform.fname.value;
+        let y=document.myform.Lname.value;
+        let g=document.myform.gender.value;
+        let gmail=document.myform.mail.value;
+        let dob=document.myform.dob.value;
+        let college=document.myform.Colleges.value;
+        let phno=document.myform.phno.value;
+        var program=document.myform.program.value;
+    if(x=="")
+    {
+        document.getElementById('fname1').style.display="block"
+        return false;
+    }
+    else if(y=="")
+    {
+        document.getElementById('fname2').style.display="block"
+        return false;
+    }
+    else if(g=="")
+    {
+        document.getElementById('fname3').style.display="block"
+        return false;
+    }
+    else if(gmail=="")
+    {
+        document.getElementById('fname4').style.display="block"
+        return false;
+    }
+    else if(dob=="")
+    {
+        document.getElementById('fname5').style.display="block"
+        return false;
+    }
+    else if(phno=="")
+    {
+        document.getElementById('fname7').style.display="block"
+        return false;
+    }
+    else if(college=="")
+    {
+        document.getElementById('fname6').style.display="block"
+        return false;
+    }
+    else
+    {
+        document.getElementById("one").innerHTML+=`Name:${x+y}<br>Gender:${g}<br>Contact Number:${phno}<br>Gmail:${gmail}<br>Date of Birth:${dob}<br>College:${college}<br/>`;
+    }
+    
+}
+</script>
+</body>
+</html>
